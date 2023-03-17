@@ -1,5 +1,5 @@
 "# authenticationNoteApp" 
 
 YouTube Tutorial: https://www.youtube.com/watch?v=dam0GPOAvVI
-Status: min. xx:xx
+Status: min. 21:40
 
