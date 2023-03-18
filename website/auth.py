@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 print("[auth]")
 
 # This will be imported by '__init__.py'
@@ -8,7 +8,8 @@ print("[auth]: created 'Blueprint('auth')'")
 @auth.route('/login')
 def login():
     print("[auth]: @auth.route(/login)")
-    return "<p>Login</p>"
+    # 'text' is a variable (chosen by me), not an default parameter. Is passed to 'login.html'
+    return render_template("login.html", boolean=True)
 
 @auth.route('/logout')
 def logout():
@@ -18,4 +19,4 @@ def logout():
 @auth.route('/sign-up')
 def sign_up():
     print("[auth]: @auth.route(/sign-up)")
-    return "<p>Sign-Up</p>"
+    return render_template("sign_up.html")
