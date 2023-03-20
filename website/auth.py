@@ -26,7 +26,7 @@ def sign_up():
         # gets the data from the HTML page
         #email = request.form['email']
         email = request.form.get('email')
-        firstName = request.form.get('firstName')
+        firstName = request.form.get('firstname')
         passwort1 = request.form.get('password1')
         password2 = request.form.get('password2')
 

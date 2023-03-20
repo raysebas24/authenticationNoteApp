@@ -20,7 +20,11 @@
 
     
     <!-- block => area that can use HTML from another template -->
-    <title>{% block title %}Home Site{% endblock %}</title>
+    <title>
+      {% block title %}
+      Home Site
+      {% endblock %}
+    </title>
 </head>
 <body>
 
@@ -45,9 +49,35 @@
         </div>
     </nav>
 
+    <!-- get_flashed_messages: Flask syntax -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      {% if category == 'error' %}
+      <!-- alert-danger => red background -->
+      <div class="alert alert-danger alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% else %}
+      <!-- alert-success => green background -->
+      <div class="alert alert-success alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+
 
     <div class="container">
       {% block content %}
+      Website Content
       {% endblock %}
     </div>
 
